@@ -44,8 +44,13 @@ gdzie:
 
 funkcja celu | ilość punktów przybliżeń | ilość potrzebnych iteracji
 -|-|-
-1 | 2 | 3
-234 | 4598 | 4
+x1^2 + x2^2 | 1 | 159
+x1^2 + x2^2 | 4 | 35
+x1^2 + x2^2 | 10 | 29
+x1^2 + x2^2 + x3^2 | 1 | 170
+x1^2 + x2^2 + x3^2 | 4 | 42
+x1^2 + x2^2 + x3^2 | 10 | 36
+
 
 
 

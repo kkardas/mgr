@@ -10,7 +10,7 @@ namespace utils
     constexpr int NUMBER_OF_SEARCH_POINTS = 1;
     constexpr int NUMBER_OF_ITERATIONS = 1000;
     constexpr double STEP_RATE = 0.75;
-    constexpr int DIMENTIONS = 2;
+    constexpr int DIMENTIONS = 3;
     constexpr double REVOLUTION_ANGLE = std::pow(-1, DIMENTIONS) * M_PI/2;
     typedef std::vector<std::vector<double>> Matrix;
 
