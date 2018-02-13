@@ -16,10 +16,24 @@ Kolejno kroki algorytmu spiralnego:
 3. Przypisanie wartości parametru r(k) zgodnie z:
 
 ![alt text](https://image.ibb.co/kpavgS/1.png "r(k)")
+
 gdzie:
-* k -liczba iteracji
+* k - nr aktualnej iteracji algorytmu
+* k* - liczba iteracji w których zostało zmienione centrum
 4. Aktualizacja punktów przybliżeń.
+
+![alt text](https://image.ibb.co/csNGMS/2.png "nowe przyblizenia")
+
+gdzie:
+* x~i~ punkty przybliżeń
+
 5. Aktualizacja centrum.
+
+![alt text](https://image.ibb.co/idqaFn/3.png "nowe centrum")
+
+gdzie:
+* i~b~ = min{argmin{f(x~i~(k+1))}}
+
 6. Sprawdzenie warunku stopu lub powrót do punktu 3.
 
 ### Parametry algorytmu:
