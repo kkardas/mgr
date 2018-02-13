@@ -40,6 +40,15 @@ gdzie:
 
 ![alt text](https://image.ibb.co/gq7Bo7/4.png "nowe centrum")
 
+### Przykładowe wyniki działania algorytmu:
+
+funkcja celu | ilość punktów przybliżeń | ilość potrzebnych iteracji
+-|-|-
+1 | 2 | 3
+234 | 4598 | 4
+
+
+
 ### Parametry algorytmu:
 
 Parametry algorytmu dostępne są w pliku utils.h.
