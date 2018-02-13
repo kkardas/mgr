@@ -9,13 +9,16 @@ Algorytm spiralny zaliczany jest do algorytmów stadnych. Opiera się on na zjaw
 Algorytm spiralny w swoim działaniu wykorzystuje przybliżenie funkcji celu kilkoma punktami, które w kolejnych iteracjach podążają za aktualnym najlepszym przybliżeniem po trajektoriach spiralnych.
 
 Struktura algorytmu spiralnego:
+```
 1. Ustalenie liczby punktów przybliżeń funkcji celu: m > 2, oraz kryterium zakończenia.
    Ustalenie wartości macierzy rotacji: R(θ)
    Ustalenie wartość parametru h ∈ (0, 1)
 2. Wylosowanie wartości punktów przybliżeń i wybranie aktualnego centrum
 3. Przypisanie wartości parametru r zgodnie z:
+
 ![alt text](https://thumb.ibb.co/hVhagS/1.png)
 
+```
 
 ### Kompilacja i uruchomienie w zależności od systemu operacyjnego:
 
