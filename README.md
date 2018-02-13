@@ -13,7 +13,7 @@ Kolejno kroki algorytmu spiralnego:
    Ustalenie wartości macierzy rotacji: R(θ)
    Ustalenie wartość parametru h ∈ (0, 1).
 2. Wylosowanie wartości punktów przybliżeń i wybranie aktualnego centrum.
-3. Przypisanie wartości parametru r(k) zgodnie z:
+3. Przypisanie wartości parametru r(k).
 
 ![alt text](https://image.ibb.co/kpavgS/1.png "r(k)")
 
@@ -25,14 +25,14 @@ gdzie:
 ![alt text](https://image.ibb.co/csNGMS/2.png "nowe przyblizenia")
 
 gdzie:
-* x~i~ punkty przybliżeń
+* x ~i~ - punkty przybliżeń
 
 5. Aktualizacja centrum.
 
 ![alt text](https://image.ibb.co/idqaFn/3.png "nowe centrum")
 
 gdzie:
-* i~b~ = min{argmin{f(x~i~(k+1))}}
+* i ~b~ = min{argmin{f(x~i~(k+1))}}
 
 6. Sprawdzenie warunku stopu lub powrót do punktu 3.
 
