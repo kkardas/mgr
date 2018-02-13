@@ -25,14 +25,14 @@ gdzie:
 ![alt text](https://image.ibb.co/csNGMS/2.png "nowe przyblizenia")
 
 gdzie:
-* x ~i~ - punkty przybliżeń
+* xi - punkty przybliżeń
 
 5. Aktualizacja centrum.
 
 ![alt text](https://image.ibb.co/idqaFn/3.png "nowe centrum")
 
 gdzie:
-* i ~b~ = min{argmin{f(x~i~(k+1))}}
+* ib = min{argmin{f(x~i~(k+1))}}
 
 6. Sprawdzenie warunku stopu lub powrót do punktu 3.
 
