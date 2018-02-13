@@ -32,9 +32,13 @@ gdzie:
 ![alt text](https://image.ibb.co/idqaFn/3.png "nowe centrum")
 
 gdzie:
-* *ib = min{argmin{f(x~i~(k+1))}}*
+* *ib = min{argmin{f(xi(k+1))}}*
 
 6. Sprawdzenie warunku stopu lub powrót do punktu 3.
+
+### Wizualizacja działania algorytmu:
+
+![alt text](https://image.ibb.co/gq7Bo7/4.png "nowe centrum")
 
 ### Parametry algorytmu:
 
