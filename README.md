@@ -15,7 +15,7 @@ Kolejno kroki algorytmu spiralnego:
 2. Wylosowanie wartości punktów przybliżeń i wybranie aktualnego centrum.
 3. Przypisanie wartości parametru r(k) zgodnie z:
 
-![alt text](https://thumb.ibb.co/hVhagS/1.png "r(k)")
+![alt text](https://image.ibb.co/kpavgS/1.png "r(k)")
 
 4. Aktualizacja punktów przybliżeń.
 5. Aktualizacja centrum.
