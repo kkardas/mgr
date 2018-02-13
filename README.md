@@ -16,7 +16,7 @@ Struktura algorytmu spiralnego:
 2. Wylosowanie wartości punktów przybliżeń i wybranie aktualnego centrum
 3. Przypisanie wartości parametru r zgodnie z:
 
-![alt text](https://thumb.ibb.co/hVhagS/1.png)
+![alt text](https://thumb.ibb.co/hVhagS/1.png "1")
 
 ```
 
