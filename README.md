@@ -14,7 +14,7 @@ Struktura algorytmu spiralnego:
    Ustalenie wartość parametru h ∈ (0, 1)
 2. Wylosowanie wartości punktów przybliżeń i wybranie aktualnego centrum
 3. Przypisanie wartości parametru r zgodnie z:
-![alt text](https://ibb.co/hVhagS "Wzór na ładunek")
+![alt text](https://thumb.ibb.co/hVhagS/1.png)
 
 
 ### Kompilacja i uruchomienie w zależności od systemu operacyjnego:
