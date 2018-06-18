@@ -6,8 +6,8 @@
 
 Point::Point(RandomValuesGenerator& rvg)
 {
-    coordinates = rvg.setRandomValues();
-    functionValue = utils::goalFunction(coordinates);
+//    coordinates = rvg.setRandomValues<double>(10);
+//    functionValue = utils::goalFunction(coordinates);
 }
 
 const std::vector<double>& Point::getCoordinates() const

@@ -12,7 +12,7 @@ public:
     virtual ~SpiralOptimization() = default;
     explicit SpiralOptimization(RandomValuesGenerator&);
     void generateRandomPoints();
-    void calculateRotationMatrix();
+    utils::Matrix calculateRotationMatrix(int);
     void calculateNewPoints();
 private:
     void calculateMinArg();

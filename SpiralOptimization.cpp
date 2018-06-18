@@ -35,18 +35,62 @@ void SpiralOptimization::calculateNewPoints()
 }
 
 
-void SpiralOptimization::calculateRotationMatrix()
+utils::Matrix SpiralOptimization::calculateRotationMatrix(int dimentionsToRotate)
 {
+    rotationMatrix = utils::Matrix();
+    int nonRotated = 0;
+    std::vector<int> nieDoRotowania;
+    if (dimentionsToRotate == utils::DIMENTIONS - 1)
+    {
+        nonRotated = randomValuesGenerator.generateRandomValue<int>();
+        for (int i = 0; i < nonRotated; ++i)
+        {
+            nieDoRotowania = randomValuesGenerator.setRandomValues<int>(nonRotated);
+        }
+    }
+
     utils::fillMatrix(rotationMatrix);
 
-    for (int i = 0; i < utils::DIMENTIONS - 1; ++i)
+    for (int i = 0; i < static_cast<int>(rotationMatrix.size()); ++ i)
     {
-        utils::Matrix tempRotationMatrix;
-        utils::fillBasicRotationMatrix(i, i + 1, tempRotationMatrix);
-        rotationMatrix = utils::multiplyTwoMatrixes(rotationMatrix, tempRotationMatrix);
+        for (int j = 0; j < static_cast<int>(rotationMatrix.size()); ++ j)
+        {
+            if (i == j)
+            {
+                rotationMatrix[i][j] = 1;
+            }
+        }
     }
+
+    for (int i = 0; i <= utils::DIMENTIONS - 2; ++i)
+    {
+        auto result1 = std::find(std::begin(nieDoRotowania), std::end(nieDoRotowania), i);
+
+        if (dimentionsToRotate == utils::DIMENTIONS - 1 and
+                result1 != nieDoRotowania.end())
+        {
+            continue;
+        }
+        for (int j = 0; j <= i; ++j)
+        {
+            utils::Matrix tempRotationMatrix;
+            utils::fillBasicRotationMatrix(utils::DIMENTIONS - i - 2, utils::DIMENTIONS - j - 1, tempRotationMatrix);
+            rotationMatrix = utils::multiplyTwoMatrixes(rotationMatrix, tempRotationMatrix);
+        }
+    }
+
+//    for (int i = 0; i < utils::DIMENTIONS; ++i)
+//    {
+//        for (int j = i + 1; j < utils::DIMENTIONS - 1; ++j)
+//        {
+//            utils::Matrix tempRotationMatrix;
+//            utils::fillBasicRotationMatrix(utils::DIMENTIONS - i - 2, utils::DIMENTIONS - j - 1, tempRotationMatrix);
+//            rotationMatrix = utils::multiplyTwoMatrixes(rotationMatrix, tempRotationMatrix);
+//        }
+//    }
+
     rotationMatrix = utils::multiplyConstAndMatrix(std::pow(-1, utils::DIMENTIONS), rotationMatrix);
-    utils::printRotationMatrix(rotationMatrix);
+    return rotationMatrix;
 }
 
 void SpiralOptimization::calculateMinArg()
