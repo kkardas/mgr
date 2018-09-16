@@ -6,7 +6,7 @@ class RandomValuesGenerator
 {
 public:
     virtual ~RandomValuesGenerator() = default;
-    explicit RandomValuesGenerator(std::random_device&);
+    explicit RandomValuesGenerator(std::mt19937&);
 
     template <class T>
     std::vector<T> setRandomValues(int dimention)

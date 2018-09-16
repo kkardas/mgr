@@ -93,6 +93,21 @@ utils::Matrix SpiralOptimization::calculateRotationMatrix(int dimentionsToRotate
     return rotationMatrix;
 }
 
+void SpiralOptimization::swapRowsAndCols(utils::Matrix& matrix,
+                                         int a,
+                                         int b)
+{
+    auto temp = matrix[a];
+    matrix[a] = matrix[b];
+    matrix[b] = temp;
+    for (int i = 0; i < matrix.size(); ++i)
+    {
+        auto t = matrix[i][a];
+        matrix[i][a] = matrix[i][b];
+        matrix[i][b] = t;
+    }
+}
+
 void SpiralOptimization::calculateMinArg()
 {
     Point min = center;

@@ -13,6 +13,7 @@ public:
     explicit SpiralOptimization(RandomValuesGenerator&);
     void generateRandomPoints();
     utils::Matrix calculateRotationMatrix(int);
+    void swapRowsAndCols(utils::Matrix&, int, int);
     void calculateNewPoints();
 private:
     void calculateMinArg();

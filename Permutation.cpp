@@ -1,5 +1,6 @@
 #include <algorithm>
 #include "Permutation.h"
+#include <stdexcept>
 
 Permutation::Permutation(std::vector<int> p_coordinates,
                          std::mt19937& g,
@@ -33,13 +34,28 @@ std::vector<int>& Permutation::getCoordinates()
     return coordinates;
 }
 
+std::vector<int> Permutation::getCoordinates2()
+{
+    return coordinates;
+}
+
+int Permutation::getSingleCoordinate(int index)
+{
+    return coordinates[index];
+}
+
+long Permutation::getFunctionValue()
+{
+    return functionValue;
+}
+
 void Permutation::setCoordinates(std::vector<int> p_coordinates)
 {
     coordinates = std::move(p_coordinates);
     calculateValue();
 }
 
-void Permutation::regenerateSolution()
+void Permutation::bestOpt2Algorithm()
 {
     std::vector<int> tempCoordinates = coordinates;
     long tempSolution = functionValue;
@@ -49,9 +65,6 @@ void Permutation::regenerateSolution()
         {
             std::iter_swap(coordinates.begin() + i, coordinates.begin() + j);
             calculateValue();
-
-//            std::cout << "Temp solution: " << tempSolution << std::endl;
-//            std::cout << "Current solution: " << functionValue << std::endl;
 
             if (functionValue < tempSolution)
             {
@@ -66,6 +79,52 @@ void Permutation::regenerateSolution()
     coordinates = tempCoordinates;
     functionValue = tempSolution;
 }
+
+void Permutation::opt2Algorithm()
+{
+    std::vector<int> tempCoordinates = coordinates;
+    long tempSolution = functionValue;
+    for (int i = 0; i < coordinates.size(); ++i)
+    {
+        for (int j = i + 1; j < coordinates.size(); ++j)
+        {
+            std::iter_swap(coordinates.begin() + i, coordinates.begin() + j);
+            calculateValue();
+
+            if (functionValue < tempSolution)
+            {
+                tempCoordinates = coordinates;
+                tempSolution = functionValue;
+                break;
+            }
+
+            std::iter_swap(coordinates.begin() + j, coordinates.begin() + i);
+            calculateValue();
+        }
+    }
+    coordinates = tempCoordinates;
+    functionValue = tempSolution;
+}
+
+bool Permutation::checkConsistency()
+{
+    auto size = coordinates.size();
+    for (int i = 0; i < size - 1; ++i)
+    {
+        for (int j = i + 1; j < size; ++j)
+        {
+            if (coordinates[i] == coordinates[j])
+            {
+                std::cout << "Permutation is not consistent" << std::endl;
+                std::cout << "Doubled: " << coordinates[j] << std::endl;
+                std::cout << *this << std::endl;
+                throw std::domain_error{""};
+            }
+        }
+    }
+    return true;
+}
+
 
 bool Permutation::operator<(const Permutation& permutation)
 {

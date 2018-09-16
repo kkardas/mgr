@@ -18,8 +18,13 @@ public:
 
     unsigned long calculateValue();
     std::vector<int>& getCoordinates();
+    std::vector<int> getCoordinates2();
+    int getSingleCoordinate(int);
+    long getFunctionValue();
     void setCoordinates(std::vector<int>);
-    void regenerateSolution();
+    void bestOpt2Algorithm();
+    void opt2Algorithm();
+    bool checkConsistency();
     bool operator<(const Permutation&);
     Permutation& operator=(const Permutation&);
     friend std::ostream& operator<<(std::ostream&, const Permutation&);

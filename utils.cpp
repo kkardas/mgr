@@ -174,13 +174,44 @@ namespace utils
         return std::move(tempMatrix);
     }
 
-    void readFromFile(int& dimention,
+    int calculateAmountToInject(int hammingDistance,
+                                int dimention)
+    {
+        switch (utils::INJECTION_CALCULATION_TYPE)
+        {
+            case utils::InjectionCalculationType::LINEAR :
+            {
+                return dimention - hammingDistance;
+
+            }
+            case utils::InjectionCalculationType::QUADRATIC :
+            {
+                return dimention - static_cast<int>(std::ceil(((1 / static_cast<double>(dimention)) * hammingDistance * hammingDistance)));
+            }
+            case utils::InjectionCalculationType::NEGATIVE_QUADRATIC :
+            {
+                auto first = static_cast<double>(1) / dimention * hammingDistance * hammingDistance;
+                auto second = - 2 * hammingDistance + dimention;
+                return static_cast<int>(std::floor(first + second));
+            }
+            case utils::InjectionCalculationType::CUBIC :
+            {
+                auto first = - static_cast<double>(4) / (dimention * dimention) * hammingDistance * hammingDistance * hammingDistance;
+                auto second = static_cast<double>(6) / dimention * hammingDistance * hammingDistance;
+                auto third = - 3 * hammingDistance + dimention;
+                return static_cast<int>(std::floor(first + second + third));
+            }
+        }
+    }
+
+    void readFromFile(std::string inputData,
+                      int& dimention,
                       std::vector<std::vector<int>>& A,
                       std::vector<std::vector<int>>& B)
     {
-        std::ifstream file("data.txt");
+        std::ifstream file(inputData);
         file >> dimention;
-        std::cout << "wymiar: " << dimention << std::endl;
+//        std::cout << "wymiar: " << dimention << std::endl;
         for (int i = 0; i < dimention; ++i)
         {
             std::vector<int> tempV;
@@ -248,15 +279,29 @@ namespace utils
         return flag;
     }
 
-    Matrix generateMatrix(Permutation& permutation)
+    int calculateHammingDistance(Permutation& currentSolution,
+                                 Permutation& permutation)
+    {
+        int result{0};
+
+        for (int i = 0; i < currentSolution.getCoordinates().size(); i++)
+            if (currentSolution.getCoordinates()[i] != permutation.getCoordinates()[i])
+                result++;
+
+        return result;
+    }
+
+    Matrix  generateMatrix(Permutation& permutation)
     {
         Matrix tempMatrix;
         fillMatrix(tempMatrix);
+
         auto& coordinates = permutation.getCoordinates();
         for (int i = 0; i < coordinates.size(); ++i)
         {
             tempMatrix[i][coordinates[i]] = 1;
         }
+
         return tempMatrix;
     }
 
